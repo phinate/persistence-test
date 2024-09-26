@@ -28,7 +28,7 @@ class PersistenceModel(AbstractModel):
         # This is where you will make predictions with your model
         # The input X is a numpy array with shape (batch_size, channels, time, height, width)
 
-        return np.repeat(X, NUM_FORECAST_STEPS, axis=-3)
+        return np.repeat(np.nan_to_num(X, nan=0), NUM_FORECAST_STEPS, axis=-3)
 
 
 
